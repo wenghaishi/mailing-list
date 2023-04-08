@@ -54,8 +54,13 @@ app.post('/', (req, res) => {
   request.write(jsonData);
   request.end();
 
-})
+});
+
+app.post("/failure", (req, res) => {
+  res.sendFile(__dirname + "/sign_up.html")
+});
 
 app.listen(3000, () => {
   console.log("server at port 3000")
 });
+

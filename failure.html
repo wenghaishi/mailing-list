@@ -10,13 +10,14 @@
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
   crossorigin="anonymous"
 />
-  <title>Success</title>
+  <title>Failure</title>
 </head>
 <body>
-  <div class="jumbotron">
-    <h1 class="display-4">Something went wrong</h1>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+  <div class="d-flex flex-column justify-content-center align-self-center mt-5">
+    <h1 class="display-4 align-self-center">Something went wrong</h1>
+    <form action="/failure" method="post" class="align-self-center mt-5">
+      <button type="submit" name="button" class="btn btn-lg btn-warning align-self-center">Try Again</button>
+    </form>
   </div>
 </body>
 </html>
