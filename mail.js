@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
+const https = require('https');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -11,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const firstName = req.body.firstName;
+  const firstName = req.body.fname;
   const lastName = req.body.lname;
   const email = req.body.email;
 
@@ -35,13 +36,16 @@ app.post('/', (req, res) => {
   const options = {
     method: "POST",
     auth: "sam:64af96b9e1ede50c3c6b45ac59b972e8-us9"
-  }
+  };
 
   const request = https.request(url, options, (response) => {
     response.on("data", (data) => {
       console.log(JSON.parse(data));
     });
   });
+
+  request.write(jsonData);
+  request.end();
 
 })
 
